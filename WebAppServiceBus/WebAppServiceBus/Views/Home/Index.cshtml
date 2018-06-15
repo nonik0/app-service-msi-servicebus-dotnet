@@ -1,0 +1,23 @@
+﻿@model WebAppServiceBus.Models.ServiceBusMessageInfo
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h3>Send or Receive Service Bus message</h3>
+    <br />
+    @using (Html.BeginForm("Send", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.MessageToSend, new { style = "width:100%" })
+        <br />
+        <input type="submit" value="Send Message To Queue" />
+    }
+    <br />
+    @using (Html.BeginForm("Receive", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.MessageReceived, new { style = "width:100%" })
+        <br />
+        <input type="submit" value="Receive Message From Queue" />
+    }
+</div>
